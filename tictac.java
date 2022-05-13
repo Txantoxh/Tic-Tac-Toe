@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.Component;
 
 public class tictac  implements ActionListener{
     Random random = new Random();
@@ -21,6 +22,8 @@ public class tictac  implements ActionListener{
         frame.getContentPane().setBackground(Color.red);
         frame.setLayout((LayoutManager) new Borderlayout());
         frame.setVisible(true);
+        
+        JLabel lb = new JLabel("Test");
 
         textfield.setBackground(new Color(25,25,25));
         textfield.setBackground(new Color(25,255,0));
