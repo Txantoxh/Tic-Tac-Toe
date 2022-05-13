@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 class inputprogram {
     public static void main(String[]args){
-    Scanner input = new Scanner (System.in);
+    Scanner input = new Scanner(System.in);
+    
     System.out.print("Enter your name:");
     String firstname = input.next();
+    
 
     System.out.print("Enter your last name: ");
-    Scanner input = new Scanner (System.in);
     String Lastname = input.next();
-
-    System.out.println("Your full name is" + firstname + Lastname);
-    
-   }
+   
+    System.out.println("Your full name is " + firstname + " " + Lastname );
+  }
 }
