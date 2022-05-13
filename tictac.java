@@ -10,7 +10,7 @@ public class tictac  implements ActionListener{
     JFrame frame = new JFrame();
     JPanel title_Panel = new JPanel();
     JPanel button_panel = new JPanel();
-    Jlabel textfield = new Jlabel();
+    Component textfield = new Jlabel();
     JButton[] buttons = new JButton[9];
     boolean player1_turn;
     boolean player2_turn;
