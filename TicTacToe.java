@@ -17,26 +17,29 @@ public class TicTacToe {
     printGameBoard(gameBoard);
     //Scanner scan = new Scanner(System.in);
     while(true){
-     Scanner scan = new Scanner(System.in);   
+    Scanner scan = new Scanner(System.in);   
     System.out.println("Enter your placement(1-9):");
     int playerPos = scan.nextInt();
+    while(playerPositions.contains(playerPos) || cpuPositions.contains(playerPositions)){
+        System.out.print("Position taken! Enter a correct Position");
+        playerPos = scan.nextInt();  
+    }
 
-    //System.out.println(pos);
     placePiece(gameBoard, playerPos ,"player");
 
     Random rand = new Random();
     int cpuPos = rand.nextInt(9) + 1;
-    placePiece(gameBoard, cpuPos, "cpu");
-
+    while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)){
+    System.out.print("Position taken! Enter a correct Position");
+    cpuPos = rand.nextInt(9) + 1;
     
-    
+    }
+    placePiece(gameBoard, cpuPos,"cpu");
     printGameBoard(gameBoard);
     checkWinner();
 
     }
 
-   
-    
     }
     public static void printGameBoard(char[][]gameboard){
 
@@ -52,8 +55,12 @@ public class TicTacToe {
         char symbol = ' ';
         if (user.equals("player")) {
             symbol = 'x';
+            playerPositions.add(pos);
         }else if (user.equals("cpu")) {
             symbol = 'O';
+            cpuPositions.add(pos);
+            String result= checkWinner();
+            System.out.println(result);
         }
 
     switch(pos) {
@@ -88,6 +95,7 @@ public class TicTacToe {
             break;     
         }
     }
+    //int intArray[];
     public static String checkWinner() {
         List topRow = Arrays.aslist(1,2,3);
         List midRow = Arrays.asList(4,5,6);
@@ -112,16 +120,13 @@ public class TicTacToe {
             if(playerPositions.containsAll(l)){
                 return "congratulations";
             } else if(cpuPositions.containsAll(l)){
-                return "CPU wins! sorry";
+                return "CPU wins!sorry";
 
             }else if(playerPositions.size() + cpuPositions.size() ==9){
                 return "Cat";
             }
         }
-
-
-
-         return "";
+         return " ";
         
     }
  }
